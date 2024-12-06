@@ -108,15 +108,30 @@ document.addEventListener('DOMContentLoaded', () => {
             memory.appendChild(saveButton);
 
         })
+
+        const deleteButton = memory.querySelector('.delete_button');
+        deleteButton.addEventListener('click', async () => {
+            deleteMemory(memory.id);
+        })
     }) 
 });
 
-function updateMemory(updatedMemory){
+async function updateMemory(updatedMemory){
     fetch('/memories', {
         method: 'PUT', 
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(updatedMemory)
+    })
+}
+
+async function deleteMemory(memoryID){
+    fetch('/memories/' + memoryID, {
+        method: 'DELETE', 
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify(updatedMemory)
     })
 }

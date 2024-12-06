@@ -33,11 +33,23 @@ router.put('/', async function (req, res) {
     console.log(req.body);
     try{
         const db = req.app.locals.db;
-        
+
         await db.collection('memories')
             .updateOne({ _id: new ObjectId(req.body.memoryID) }, { $set: {title: req.body.title, description: req.body.description, date: req.body.date}})
-
+        res.send('successfully updated')
     } catch(error){
+        console.log(error);
+    }
+})
+
+router.delete('/:id', async function (req, res) {
+    console.log(req.params.id);
+    try{
+        const db = req.app.locals.db;
+        await db.collection('memories')
+            .deleteOne({ _id: new ObjectId(req.params.id) })
+        res.send('successfully deleted')
+    }catch(error){
         console.log(error);
     }
 })
