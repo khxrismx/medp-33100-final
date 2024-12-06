@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<div class="container">
+{{#each memories}}
+        <div class="memory" >
+            <h1 class="title">{{this.title}}</h1>
+            <h3 class="date">Date: {{this.date}}</h3>
+            <p class="description">Description: {{this.description}}</p>
+            <button class="edit_button">Edit</button>
+        </div>
+{{/each}} 
+</div>
