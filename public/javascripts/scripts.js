@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const editedDateText = `${originalDate} (Edited at: ${editedDate})`;
                 
                 const updatedMemory = {
+                    memoryID: memory.id, 
                     title: titleInput.value,
                     date: editedDateText, 
                     description: descInput.value,

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const { ObjectId } = require('mongodb');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -30,6 +31,15 @@ router.post('/', async function(req, res) {
 router.put('/', async function (req, res) {
     console.log('MAKING PUT REQUEST')
     console.log(req.body);
+    try{
+        const db = req.app.locals.db;
+        
+        await db.collection('memories')
+            .updateOne({ _id: new ObjectId(req.body.memoryID) }, { $set: {title: req.body.title, description: req.body.description, date: req.body.date}})
+
+    } catch(error){
+        console.log(error);
+    }
 })
 
 module.exports = router;
