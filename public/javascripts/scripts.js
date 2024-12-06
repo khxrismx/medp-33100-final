@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveButton.classList.add('save_button');
             saveButton.innerText = 'Save';
 
-            saveButton.addEventListener('click', () => {
+            saveButton.addEventListener('click', async () => {
                 const editedDate = new Date().toLocaleDateString('en-US', {
                     weekday: 'long',
                     year: 'numeric',
@@ -87,8 +87,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     author: memory.querySelector('.author').innerText
                 }
                 console.log(updatedMemory);
-                updateMemory(updatedMemory);
-            })
+                await updateMemory(updatedMemory);
+
+                //revert all the elements back
+                title.innerHTML = '';
+                const updatedTitleEl = document.createElement('h1');
+                updatedTitleEl.innerText = titleInput.value;
+                title.appendChild(updatedTitleEl);
+
+                const dateElement = memory.querySelector('.date');
+                dateElement.innerText = editedDateText;
+
+                desc.innerHTML = '';
+                const updatedDescEl = document.createElement('p');
+                updatedDescEl.innerText = descInput.value;
+                desc.appendChild(updatedDateEl);
+
+                saveButton.remove();
+            });
             memory.appendChild(saveButton);
 
         })
