@@ -1,13 +1,25 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<div class="container">
+<div class="memories_container">
 {{#each memories}}
-        <div class="memory" >
+        <div class="memory" id="{{this.id}}">
             <h1 class="title">{{this.title}}</h1>
-            <h3 class="date">Date: {{this.date}}</h3>
-            <p class="description">Description: {{this.description}}</p>
+            <h5 class="date">{{this.date}}</h3>
+            <p class="description">{{this.description}}</p>
+            <p class="author">By: {{this.author}}</p>
             <button class="edit_button">Edit</button>
+            <button class="delete_button">Delete</button>
         </div>
 {{/each}} 
+</div>
+
+<div class="new_memory_form">
+    <form id="form">
+        <h3>Create New Memory</h3>
+        <input type="text" name="title" placeholder="Title" ><br>
+        <input type="text" name="description" placeholder="Description" ><br>
+        <input type="text" name="author" placeholder="By" ><br>
+        <input id="submit_button" type="submit" value="Create Memory">
+    </form>
 </div>
