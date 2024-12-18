@@ -8,6 +8,7 @@ const connectToDatabase = require('./config/db');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const memoriesRouter = require('./routes/memories');
+const page2Router = require('./routes/page2');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/memories', memoriesRouter);
+app.use('/page2', page2Router);
 app.use(express.json());
 
 

@@ -16,4 +16,9 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+/* GET second page. */
+router.get('/page2', (req, res) => {
+  res.render('page2', { title: 'Page 2' });
+});
+
 module.exports = router;
