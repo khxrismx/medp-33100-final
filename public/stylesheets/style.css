@@ -1,9 +1,9 @@
 /* CSS and Cards Reference - https://youtu.be/hv0rNxr1XXk?si=AzbW9fR4EKcc_RBL */
 /* @import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 * {
-  font-family: "Italiana", serif;
-  font-weight: 1000;
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -11,15 +11,15 @@
 }
 
 body {
-  background-image: url('/public/images/str-resize.gif');
+  background-image:url('./images/calm-star.gif');
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #161623;
+  background: #6a6a82;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
@@ -30,11 +30,6 @@ body {
   align-items: center; 
   max-width: 1200px;
   flex-wrap: wrap;
-}
-
-img{
-  height:100px;
-  width: auto;
 }
 
 .memories_container .card{
@@ -64,9 +59,30 @@ img{
 }
 
 .memories_container .card:hover{
-    /* To make card into a star */
-    background: rgba(150, 125, 1, 0.559);
+  box-shadow: 5px 10px 10px 5px rgba(255, 255, 255, 0.348);
+  background: rgba(150, 125, 1, 0.559);
   transform: scale(5);
+}
+
+.description {
+  max-height: 80px;
+  overflow-y: auto;
+  padding: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.description::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 
@@ -78,6 +94,10 @@ img{
   transition: 0.5s;
   pointer-events: none;
   z-index: 1;
+  overflow: auto;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
 .memories_container .card:hover .content{
@@ -223,4 +243,32 @@ img{
   font-size: 5em;
   color: #fff;
   animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ced4c6, 0 0 40px #5c5c5c, 0 0 50px #a9a9a9, 0 0 60px #b59520, 0 0 70px #cab541;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #d2cf1d, 0 0 40px #c09714, 0 0 50px #cbcbcb, 0 0 60px #535353, 0 0 70px #c2b749, 0 0 80px #d7cb49;
+  }
+}
+
+
+.memory img {
+  max-width: 80%; 
+  height: auto;
+  margin: 10px 0;
+  width: 150px;
+}
+
+input[name="description"] {
+  width: 100%; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  font-size: 1.2em; /* Increase font size for better readability */
+  padding: 10px; /* Add padding for aesthetics */
+  border: 2px solid #ccc; /* Optional: Customize border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for style */
 }

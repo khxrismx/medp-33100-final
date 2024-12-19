@@ -29,10 +29,10 @@
         <div class="content">
             <div class="memory" id="{{this._id}}">
                 <h3 class="title">{{this.title}}</h3>
-                <h5 class="date">{{this.date}}</h3>
-                <p class="description">{{this.description}}</p>
                 <img class="image" src={{this.imageUrl}} alt="post image">
-                <a href="#">Read More</a>
+                <p class="description">{{this.description}}</p>
+                <h5 class="date">{{this.date}}</h5>
+                <button>Read More</button>
                 <p class="author">By: {{this.author}}</p>
                 <button class="edit_button">Edit</button>
                 <button class="delete_button">Delete</button>
@@ -42,6 +42,7 @@
     {{/each}} 
     <script type="text/javascript" src="/javascripts/vanilla-tilt.js"></script>
     <script>
+        //Intro stuff
         const splash = document.querySelector('.splash')
 
         document.addEventListener('DOMContentLoaded', (e) =>{
@@ -49,6 +50,7 @@
                 splash.classList.add('display-none');
             }, 1000);
         })
+        //JS for glare on cards
         VanillaTilt.init(document.querySelectorAll(".card"),{
 		max: 25,
 		speed: 400,
