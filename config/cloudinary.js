@@ -1,12 +1,13 @@
 // import { v2 as cloudinary } from 'cloudinary';
 const cloudinary = require("cloudinary").v2;
+require('dotenv').config();
 
 async function connectToCloudinary() {
   // Configuration
   cloudinary.config({
-    cloud_name: "dpv3r9vqy",
-    api_key: "757173236613825",
-    api_secret: "56NDpPDQYKDP-tntXx6Tlo6Rz3o", // Click 'View API Keys' above to copy your API secret
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET, // Click 'View API Keys' above to copy your API secret
   });
 
   // Upload an image
