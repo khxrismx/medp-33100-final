@@ -1,5 +1,4 @@
 /* CSS and Cards Reference - https://youtu.be/hv0rNxr1XXk?si=AzbW9fR4EKcc_RBL */
-/* @import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 * {
   font-family: "Abril Fatface", serif;
@@ -75,8 +74,9 @@ body {
   padding: 5px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
-  border: 1px solid rgba(255, 255, 255, 1.5);
-  border-radius: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 1.5);
+  border-top: 1px solid rgba(255, 255, 255, 1.5);
+  border-radius: 5px;
   margin: 5px;
 }
 
