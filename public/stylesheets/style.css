@@ -1,41 +1,169 @@
+/* CSS and Cards Reference - https://youtu.be/hv0rNxr1XXk?si=AzbW9fR4EKcc_RBL */
+@import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap');
+* {
+  font-family: "Nokora", serif;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-.memories_container {
+  background-image: url('/public/images/str-resize.gif');
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background: #161623;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
-.memory {
-  background-color: pink;
-  border-radius: 10px;
-  padding: 25px;
-  margin: 15px;
+.memories_container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+img{
+  height:100px;
+  width: auto;
+}
+
+.memories_container .card{
+  /* To make card into a star */
+  /* clip-path: polygon(
+        50% 0%, 63% 35%, 98% 35%, 
+        70% 55%, 79% 90%, 
+        50% 70%, 
+        21% 90%, 30% 55%, 
+        2% 35%, 37% 35%
+    ); */
+  position: relative;
+  width: 280px;
+  height: 400px;
+  margin: 30px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.memories_container .card .content{
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 400px;
-  height: 200px;
+  transform: translateY(100px);
+  opacity: 0.2;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 1;
 }
 
+.memories_container .card:hover .content{
+  transform: translateY(0px);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.memories_container .card .content h3{
+  font-size: 1.8em;
+  color: #ffffff;
+  z-index: 1;
+}
+.memories_container .card .content p{
+  font-size: 1em;
+  color: #ffffff;
+  font-weight: 300;
+}
+.memories_container .card .content a{
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 15px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* MEMORY FORM CSS */
 .new_memory_form {
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 400px;
-  height: 200px;
+  position: relative;
+  width: 280px;
+  height: auto;
+  margin: 30px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.new_memory_form form {
+  width: 80%;
   text-align: center;
 }
 
-img {
-  width: 100px;
-  height: auto;
+.new_memory_form h3 {
+  font-size: 1.8em;
+  color: #ffffff;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.new_memory_form input[type="text"],
+.new_memory_form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+}
+
+.new_memory_form input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.new_memory_form input[type="submit"] {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+}
+
+.new_memory_form input[type="submit"]:hover {
+  transform: scale(1.05);
+  background: #eaeaea;
+}
+
+.new_memory_form input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.3);
 }

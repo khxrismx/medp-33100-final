@@ -6,7 +6,7 @@
 
 ## **Project Members**
 
-- List the people a part of this group.
+- Kharisma Supatmono and Alexandra Ernest
 
 ## **Features**
 
@@ -15,8 +15,7 @@
 ## **Technologies Used**
 
 - List the technologies and tools used in the project:
-    - APIs
-    - Libraries
+    - We used the JS Library - Vanilla-tilt.js
     - Other
  
 ## **Live Demo**
