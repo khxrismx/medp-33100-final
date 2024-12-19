@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("submitted");
     alert('Memory Posted!');
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           //revert all the elements back
           title.innerHTML = "";
-          const updatedTitleEl = document.createElement("h1");
+          const updatedTitleEl = document.createElement("h4");
           updatedTitleEl.innerText = titleInput.value;
           title.appendChild(updatedTitleEl);
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
           desc.innerHTML = "";
           const updatedDescEl = document.createElement("p");
           updatedDescEl.innerText = descInput.value;
-          desc.appendChild(updatedDateEl);
+          desc.appendChild(updatedDescEl);
 
           saveButton.remove();
         });

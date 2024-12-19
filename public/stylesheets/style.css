@@ -32,10 +32,10 @@ body {
   flex-wrap: wrap;
 }
 
-img{
+/* img{
   height:100px;
   width: auto;
-}
+} */
 
 .memories_container .card{
   /* To make card into a star */
@@ -65,7 +65,7 @@ img{
 
 .memories_container .card:hover{
   box-shadow: 5px 10px 10px 5px rgba(255, 255, 255, 0.348);
-  background: rgba(150, 125, 1, 0.559);
+  background: rgba(17, 63, 202, 0.559);
   transform: scale(5);
 }
 
@@ -75,6 +75,9 @@ img{
   padding: 5px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  border: 1px solid rgba(255, 255, 255, 1.5);
+  border-radius: 15px;
+  margin: 5px;
 }
 
 .description::-webkit-scrollbar {
@@ -268,12 +271,21 @@ img{
   width: 150px;
 }
 
-input[name="description"] {
-  width: 100%; /* Adjust width as needed */
-  height: 100px; /* Adjust height as needed */
-  font-size: 1.2em; /* Increase font size for better readability */
-  padding: 10px; /* Add padding for aesthetics */
-  border: 2px solid #ccc; /* Optional: Customize border */
-  border-radius: 5px; /* Optional: Add rounded corners */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for style */
+button {
+  display: inline-block;
+  border-radius: 5px;
+  width: auto; 
+  padding: 10px;
+  margin: 10px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+}
+
+.date {
+  color: rgba(76, 76, 76, 0.733);
 }
