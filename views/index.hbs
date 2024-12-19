@@ -1,10 +1,15 @@
-<h1>{{title}}</h1>
+<h1 class="web_title">{{title}}</h1>
 
 {{!-- <form id="search_form">
     <label>Search for: </label>
     <input type="text" name="search" placeholder="Enter search term"/>
     <input type="submit" value="Search">
 </form> --}}
+<div class="splash">
+    <h1 class="fade-in">Welcome to your Memory Bank!</h1>
+    <h2 class="fade-in">In here is where you will store all your precious memories!</h2>
+    <h2 class="fade-in">Use the new memory button on the bottom of the screen to post your own memories!</h2>
+</div>
 
 
 <div class="memories_container">
@@ -37,6 +42,13 @@
     {{/each}} 
     <script type="text/javascript" src="/javascripts/vanilla-tilt.js"></script>
     <script>
+        const splash = document.querySelector('.splash')
+
+        document.addEventListener('DOMContentLoaded', (e) =>{
+            setTimeout(() => {
+                splash.classList.add('display-none');
+            }, 5000);
+        })
         VanillaTilt.init(document.querySelectorAll(".card"),{
 		max: 25,
 		speed: 400,
