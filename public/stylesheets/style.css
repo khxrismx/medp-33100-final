@@ -32,6 +32,11 @@ body {
   flex-wrap: wrap;
 }
 
+img{
+  height:100px;
+  width: auto;
+}
+
 .memories_container .card{
   /* To make card into a star */
   /* clip-path: polygon(

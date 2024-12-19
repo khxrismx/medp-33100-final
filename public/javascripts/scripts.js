@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //create new memory
     const formData = new FormData(form);
 
+    //get emotion dropdown and append to formData
+    const emotion = document.getElementById("emotion").value;
+    console.log('selected emotion: ', emotion);
+
     fetch('/memories', {
       method: 'POST',
       body: formData,
@@ -105,26 +109,58 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteMemory(memory.id);
         alert('Memory Deleted!');
       });
-    });
 
-  async function updateMemory(updatedMemory) {
-    fetch("/memories", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedMemory),
-    });
-  }
+      //filters
+      const filterButtons = document.querySelectorAll(".filter-button");
 
-  async function deleteMemory(memoryID) {
-    fetch("/memories/" + memoryID, {
-      method: "DELETE",
-      // headers: {
-      //     'Content-Type': 'application/json'
-      // },
-      // body: JSON.stringify(updatedMemory)
-    });
-  }
-});
+      //event listeners
+      filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const selectedEmotion = button.getAttribute("data-emotion");
 
+          //remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove("active"));
+
+          //add active clss to clickd button
+          button.classList.add("active");
+
+          //fetch based on emotion
+          fetchFilteredMemories(selectedEmotion);
+        })
+      })
+    });
+  
+    async function fetchFilteredMemories(emotion) {
+      const response = await fetch(`/memories?emotion=${emotion}`);
+      const memories = await response.json();
+    
+      // Update the DOM with the filtered memories
+      const memoriesContainer = document.querySelector(".memories_container");
+      memoriesContainer.innerHTML = ""; // Clear current memories
+    
+      memories.forEach(memory => {
+        const memoryElement = createMemoryElement(memory);
+        memoriesContainer.appendChild(memoryElement);
+      });
+    }
+
+    async function updateMemory(updatedMemory) {
+      fetch("/memories", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedMemory),
+      });
+    }
+
+    async function deleteMemory(memoryID) {
+      fetch("/memories/" + memoryID, {
+        method: "DELETE",
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify(updatedMemory)
+      });
+    }
+  });

@@ -10,24 +10,34 @@ router.get("/", async function (req, res, next) {
   try {
     const db = req.app.locals.db;
 
+    const emotionFilter = req.query.emotion || "all";
+
+    let query = {};
+    if(emotionFilter != "all"){
+      //only fetch memories with the selected emotion
+      query.emotion = emotionFilter;
+    }
+
     // const posts = await db.collection('posts')
     //   .find()
     //   .toArray();
     // console.log(posts);
-    const posts = await db
-      .collection("memories")
-      .aggregate([
-        {
-          $lookup: {
-            from: "comments",
-            foreignField: "postID",
-            localField: "_id",
-            as: "comments",
-          },
-        },
-        { $sort: { createdAt: -1 } },
-      ])
-      .toArray();
+    // const posts = await db
+    //   .collection("memories")
+    //   .aggregate([
+    //     {
+    //       $lookup: {
+    //         from: "comments",
+    //         foreignField: "postID",
+    //         localField: "_id",
+    //         as: "comments",
+    //       },
+    //     },
+    //     { $sort: { createdAt: -1 } },
+    //   ])
+    //   .toArray();
+
+    const memories = await db.collection("memories").find(query).toArray();
     console.log(memories);
 
     res.render("index", { title: "Memories", memories: memories });
@@ -59,12 +69,14 @@ router.post('/', multer().single('image'), uploadToCloudinary, async function (r
 
     const formattedDate = `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
 
+    console.log(req.body.emotion);
     const newMemory = {
       title: req.body.title,
       date: formattedDate,
       description: req.body.description,
       imageUrl: req.file.cloudinaryUrl,
-      author: req.body.author
+      author: req.body.author, 
+      emotion: req.body.emotion,
     }
     await db.collection('memories')
       .insertOne(newMemory)
