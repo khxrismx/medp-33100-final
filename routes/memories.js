@@ -40,6 +40,7 @@ router.get("/", async function (req, res, next) {
 router.post('/', multer().single('image'), uploadToCloudinary, async function (req, res) {
   console.log(req.file.cloudinaryUrl);
 
+
   try {
     const db = req.app.locals.db;
     const newMemory = {
