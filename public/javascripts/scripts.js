@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log("submitted");
+    alert('Memory Posted!');
 
     //create new memory
     const formData = new FormData(form);
@@ -61,7 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
           const formattedDate = `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
 
           const originalDate = memory.querySelector(".date").innerText;
-          const editedDateText = `${originalDate} (Edited at: ${formattedDate})`;
+          // const editedDateText = `${originalDate} (Edited)`;
+          
+          let editedDateText = originalDate;
+          if (!originalDate.includes("(Edited)")) {
+            editedDateText = `${originalDate} (Edited)`;
+          }
+
+          alert('Memory Saved Successfully!');
 
           const updatedMemory = {
             memoryID: memory.id,
@@ -95,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const deleteButton = memory.querySelector(".delete_button");
       deleteButton.addEventListener("click", async () => {
         deleteMemory(memory.id);
+        alert('Memory Deleted!');
       });
     });
 
