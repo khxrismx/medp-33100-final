@@ -27,18 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
       body: formData,
     })
   })
-  //edit
-  const memories = document.querySelectorAll('.memory');
-  memories.forEach(memory => {
-    const editButton = memory.querySelector('.edit_button');
-    editButton.addEventListener('click', () => {
-      console.log('edit post');
 
-      fetch("/memories", {
-        method: "POST",
-        body: formData
-      });
-    });
+
+  //edit
+
+
 
     //edit
     const memories = document.querySelectorAll(".memory");
@@ -121,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteMemory(memory.id);
       });
     });
-  });
 
   async function updateMemory(updatedMemory) {
     fetch("/memories", {
