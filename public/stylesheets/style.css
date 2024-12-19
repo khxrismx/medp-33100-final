@@ -11,13 +11,12 @@
 
 body {
   /* background-image:url('./images/calm-star.gif'); */
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #6a6a82;
+  background-image: linear-gradient(to bottom right, rgb(134, 171, 247), rgb(58, 69, 140));
   padding: 50px;
   margin: 0;
 }
@@ -255,11 +254,11 @@ body {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ced4c6, 0 0 40px #5c5c5c, 0 0 50px #a9a9a9, 0 0 60px #b59520, 0 0 70px #cab541;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ced4c6, 0 0 40px #5c5c5c, 0 0 50px #a9a9a9, 0 0 60px #1c6edb, 0 0 70px #73a8f4;
   }
   
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #d2cf1d, 0 0 40px #c09714, 0 0 50px #cbcbcb, 0 0 60px #535353, 0 0 70px #c2b749, 0 0 80px #d7cb49;
+    text-shadow: 0 0 15px #fff, 0 0 30px #87b1ff, 0 0 40px #1453c0, 0 0 50px #cbcbcb, 0 0 60px #535353, 0 0 70px #495fc2, 0 0 80px #497fd7;
   }
 }
 
@@ -268,7 +267,7 @@ body {
   max-width: 80%; 
   height: auto;
   margin: 10px 0;
-  width: 200px;
+  width: 160px;
 }
 
 button {
@@ -288,4 +287,7 @@ button {
 
 .date {
   color: rgba(76, 76, 76, 0.733);
+}
+.emotion {
+  color:rgba(255, 255, 255, 0.613);
 }
