@@ -292,3 +292,7 @@ button {
 .emotion {
   color:rgba(255, 255, 255, 0.613);
 }
+
+hr {
+  opacity: 0.5;
+}
