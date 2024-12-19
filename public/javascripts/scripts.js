@@ -8,30 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //create new memory
     const formData = new FormData(form);
 
-    //format date
-    const currentDate =
-      new Date().toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }) +
-      " " +
-      new Date().toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-
     fetch('/memories', {
       method: 'POST',
       body: formData,
     })
   })
-
-
-  //edit
-
-
 
     //edit
     const memories = document.querySelectorAll(".memory");
@@ -64,21 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
         saveButton.innerText = "Save";
 
         saveButton.addEventListener("click", async () => {
-          const editedDate =
-            new Date().toLocaleDateString("en-US", {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }) +
-            " " +
-            new Date().toLocaleTimeString("en-US", {
-              hour: "2-digit",
-              minute: "2-digit",
-            });
+          
+          const currentDate = new Date();
+          const month = currentDate.getMonth() + 1;
+          const day = currentDate.getDate();
+          const year = currentDate.getFullYear();
+          let hours = currentDate.getHours();
+          let minutes = currentDate.getMinutes();
+          const ampm = hours >= 12 ? 'PM' : 'AM';
+      
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+      
+          const formattedDate = `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
 
           const originalDate = memory.querySelector(".date").innerText;
-          const editedDateText = `${originalDate} (Edited at: ${editedDate})`;
+          const editedDateText = `${originalDate} (Edited at: ${formattedDate})`;
 
           const updatedMemory = {
             memoryID: memory.id,

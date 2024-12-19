@@ -43,9 +43,25 @@ router.post('/', multer().single('image'), uploadToCloudinary, async function (r
 
   try {
     const db = req.app.locals.db;
+
+    // Format the current date and time
+    const currentDate = new Date();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
+    const year = currentDate.getFullYear();
+    let hours = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    const formattedDate = `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
+
     const newMemory = {
       title: req.body.title,
-      date: new Date(),
+      date: formattedDate,
       description: req.body.description,
       imageUrl: req.file.cloudinaryUrl,
       author: req.body.author
