@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(formDataObject)
         })
     })
-    
+    //edit
     const memories = document.querySelectorAll('.memory');
     memories.forEach(memory => {
         const editButton = memory.querySelector('.edit_button');
