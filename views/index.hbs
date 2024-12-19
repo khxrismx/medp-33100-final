@@ -11,25 +11,22 @@
     <h2 class="fade-in">Use the new memory button on the bottom of the screen to post your own memories!</h2>
 </div>
 
+<div class="filter-container">
+    <button class="filter-button" data-emotion="all">All</button>
+    <button class="filter-button" data-emotion="happy">Happy</button>
+    <button class="filter-button" data-emotion="sad">Sad</button>
+    <button class="filter-button" data-emotion="angry">Angry</button>
+    <button class="filter-button" data-emotion="nostalgic">Nostalgic</button>
+</div>
 
 <div class="memories_container">
-    {{!-- {{#each memories}}
-    <div class="memory" id="{{this._id}}">
-        <h1 class="title">{{this.title}}</h1>
-        <h5 class="date">{{this.date}}</h3>
-            <p class="description">{{this.description}}</p>
-            <img class="image" src={{this.imageUrl}} alt="post image">
-            <p class="author">By: {{this.author}}</p>
-            <button class="edit_button">Edit</button>
-            <button class="delete_button">Delete</button>
-    </div>
-    {{/each}} --}}
     {{#each memories}}
     <div class="card">
         <div class="content">
             <div class="memory" id="{{this._id}}">
                 <h3 class="title">{{this.title}}</h3>
-                <h5 class="date">{{this.date}}</h3>
+                <h4 class="date">{{this.date}}</h3>
+                <h5 class="emotion"> {{this.emotion}}</h5>
                 <p class="description">{{this.description}}</p>
                 <img class="image" src={{this.imageUrl}} alt="post image">
                 <a href="#">Read More</a>
@@ -61,8 +58,15 @@
 <div class="new_memory_form">
     <form id="form">
         <h3>Create New Memory</h3>
+        <select id="emotion" name="emotion">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="angry">Angry</option>
+            <option value="nostalgic">Nostalgic</option>
+        </select>
         <input type="text" name="title" placeholder="Title" required><br>
         <input type="text" name="description" placeholder="Description" required><br>
+        
         <input type="text" name="author" placeholder="By" required><br>
         <input type="file" name="image" accept="image/*" required>
         <input id="submit_button" type="submit" value="Create Memory">

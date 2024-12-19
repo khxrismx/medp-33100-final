@@ -37,6 +37,10 @@ img{
   width: auto;
 }
 
+.emotion{
+  background-color: white;
+}
+
 .memories_container .card{
   /* To make card into a star */
   /* clip-path: polygon(
