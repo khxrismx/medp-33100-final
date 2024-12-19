@@ -1,7 +1,8 @@
 /* CSS and Cards Reference - https://youtu.be/hv0rNxr1XXk?si=AzbW9fR4EKcc_RBL */
-@import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 * {
-  font-family: "Nokora", serif;
+  font-family: "Italiana", serif;
   font-weight: 300;
   font-style: normal;
   margin: 0;
@@ -66,7 +67,7 @@ img{
   padding: 20px;
   text-align: center;
   transform: translateY(100px);
-  opacity: 0.2;
+  opacity: 0;
   transition: 0.5s;
   pointer-events: none;
   z-index: 1;
