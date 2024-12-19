@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image:url('./images/calm-star.gif');
+  /* background-image:url('./images/calm-star.gif'); */
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; 
-  max-width: 1200px;
+  max-width: auto;
   flex-wrap: wrap;
 }
 
@@ -268,7 +268,7 @@ body {
   max-width: 80%; 
   height: auto;
   margin: 10px 0;
-  width: 150px;
+  width: 200px;
 }
 
 button {
